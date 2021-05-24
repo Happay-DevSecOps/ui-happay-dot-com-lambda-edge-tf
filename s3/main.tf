@@ -33,7 +33,7 @@ resource "aws_s3_bucket" "s3-log" {
     }
  }
 
- tags                  =   merge(var.tags, map(
-                            "description","${local.name_prefix} Logs",
-                            "Name", "${local.name_prefix}-logs-${data.aws_region.current.name}"))
+ tags                  =   merge(var.tags, tomap({
+                            "description" = "${local.name_prefix} Logs",
+                            "Name"= "${local.name_prefix}-logs-${data.aws_region.current.name}"}))
 }

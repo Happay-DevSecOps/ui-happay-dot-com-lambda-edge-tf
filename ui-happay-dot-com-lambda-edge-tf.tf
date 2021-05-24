@@ -9,7 +9,7 @@ module "s3" {
 }
 
 module "lambda" {
-  source = "./s3"
+  source = "./lambda"
   tags = local.tags
   meta = local.meta
   workspace = local.workspace
@@ -25,7 +25,7 @@ module "cloudwatch" {
   meta = local.meta
   workspace = local.workspace
 
-  kms_key_arn = local.workspace["kms_key_arn"]
+  kms_key_id = local.workspace["kms_key_arn"]
 }
 
 module "iam" {

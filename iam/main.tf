@@ -74,7 +74,7 @@ resource "aws_iam_policy" "policy" {
       "Effect": "Allow",
       "Resource": [
         "${var.s3_log_bucket_arn}",
-        "${var.s3_log_bucket_arn}"/*,
+        "${var.s3_log_bucket_arn}/*"
         ]
         },
         {
@@ -166,7 +166,9 @@ resource "aws_iam_role" "role" {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Sid": "SSMAssumeRole",
       "Action": "sts:AssumeRole",
+      "Effect": "Allow",
       "Principal": { 
         "Service": [
           "ec2.amazonaws.com", 
@@ -180,13 +182,11 @@ resource "aws_iam_role" "role" {
           "ecs-tasks.amazonaws.com",
           "batch.amazonaws.com",
           "sqs.amazonaws.com",
-          "vpc-flow-logs.amazonaws.com"
+          "vpc-flow-logs.amazonaws.com",
           "lambda.amazonaws.com",
           "edgelambda.amazonaws.com"
-         ]
-          },
-      "Effect": "Allow",
-      "Sid": "SSMAssumeRole"
+           ]
+        }    
     }
   ]
 }

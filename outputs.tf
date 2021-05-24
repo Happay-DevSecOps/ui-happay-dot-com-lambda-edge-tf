@@ -9,3 +9,7 @@ output "s3_log_bucket_id" {
 output "iam_role_arn" {
   value       = module.iam.iam_role_arn
 }
+
+output "lambda_function_arn" {
+  value       = module.lambda.lambda_function_arn
+}

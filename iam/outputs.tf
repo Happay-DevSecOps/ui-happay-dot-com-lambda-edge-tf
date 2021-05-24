@@ -3,6 +3,7 @@ output "iam_role_arn" {
 }
 
 output "iam_role_name" {
+  sensitive = true
   value       = aws_iam_role.role.name
 }
 
@@ -11,5 +12,6 @@ output "iam_instance_profile_arn" {
 }
 
 output "iam_instance_profile_name" {
+  sensitive = true
   value       = aws_iam_instance_profile.profile.name
 }

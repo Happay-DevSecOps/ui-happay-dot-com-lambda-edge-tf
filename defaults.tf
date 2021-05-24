@@ -46,5 +46,5 @@ locals {
 } 
 
 data   "aws_ssm_parameter" "kms_key_arn" {
-   name = "/happay/${var.environ}/pci-vpc/kms_key_arn"
+   name = "/happay/${var.environ}/regional-shared/kms_key_arn"
 }

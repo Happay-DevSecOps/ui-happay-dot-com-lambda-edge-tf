@@ -20,4 +20,4 @@ locals {
 
 variable "workspace" { type = map }
 
-variable "s3_log_bucket_arn" { type = string }
+variable "kms_key_id" { type = string }

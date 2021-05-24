@@ -19,9 +19,9 @@ resource "aws_lambda_function" "function" {
      }
    }
 
-  tags 			=   merge(var.tags, map(
-                            "description","${local.name_prefix} Lambda function",
-                            "Name", "${local.name_prefix}-function"))
+  tags 			=   merge(var.tags, tomap({
+                            "description" = "${local.name_prefix} Lambda function",
+                            "Name" = "${local.name_prefix}-function"}))
 }
 
 resource "aws_ssm_parameter" "lambda_function_arn" {
@@ -30,7 +30,7 @@ resource "aws_ssm_parameter" "lambda_function_arn" {
   type        = "String"
   value       = aws_lambda_function.function.arn
 
-  tags 			=   merge(var.tags, map(
-                            "description","${local.name_prefix} param store",
-                            "Name", "${local.name_prefix}-function"))
+  tags 			=   merge(var.tags, tomap({
+                            "description" = "${local.name_prefix} param store",
+                            "Name" = "${local.name_prefix}-function"}))
 }
