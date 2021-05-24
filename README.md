@@ -1,3 +1,15 @@
+# Deploy lambda edge function to redirect your Cloudfront on country wide URLs .
+
+Such as - 
+APAC_REGION / Suffix = ["SG", "TH", "MY", "VN", "RI", "KH", "MM"] / sg 
+ For a request from APAC_REGION country code, requests will get redirected from "happay.com" to "happay.com/sg"
+
+
+## Create a SSM parameter store key to store KMS KEY value - 
+Like - /happay/prd/regional-shared/kms_key_arn 
+Note - Chage your ORG_ID in code(default.tf) as desired.
+
+## Deploy it -
 ```
 export AWS_ACCESS_KEY_ID=xxxx
 export AWS_SECRET_ACCESS_KEY=xxxx
